@@ -20,21 +20,6 @@ def _wait_for_memgraph():
 
 
 def setup_memgraph():
-    print("Set up memgraph")
-    print("Set up memgraph")
-    print("Set up memgraph")
-    print("Set up memgraph")
-    print("Set up memgraph")
-    print("Set up memgraph")
-    print("Set up memgraph")
-    print("Set up memgraph")
-    print("Set up memgraph")
-    print("Set up memgraph")
-    print("Set up memgraph")
-    print("Set up memgraph")
-    print("Set up memgraph")
-    print("Set up memgraph")
-    print("Set up memgraph")
     _wait_for_memgraph()
     memgraph.ensure_indexes([])
     memgraph.ensure_constraints([])
