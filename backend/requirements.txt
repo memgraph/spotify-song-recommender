@@ -1,0 +1,9 @@
+Fabric
+Flask-SQLAlchemy
+Flask-WTF
+WTForms
+coverage
+gqlalchemy
+# ecdsa
+# paramiko
+# pycrypto
