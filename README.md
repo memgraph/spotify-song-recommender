@@ -29,7 +29,7 @@ The Spotify playlist dataset contains 5 million song playlists from different us
 <details>
   <summary align="center" style="color:gray;font-weight:900;align-items:center;display:flex">show dataset sample</summary>
   <p>
-  <code style="display: block;white-space: pre-wrap;">
+  <pre>
 {
     "name": "musical",
         "collaborative": "false",
@@ -65,7 +65,7 @@ The Spotify playlist dataset contains 5 million song playlists from different us
             }
         ],
     }
-  </code>
+  </pre>
   </p>
 </details>
 
