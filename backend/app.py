@@ -71,14 +71,14 @@ def add_track():
     try:
         data = request.get_json()
         playlist_id = data["playlist_id"]
-        track_id = data["track_id"]
+        track_uri = data["track_uri"]
 
         playlist_result = next(
             memgraph.execute_and_fetch(f"MATCH (n) WHERE ID(n) = {playlist_id} RETURN n;"),
             None,
         )
         track_result = next(
-            memgraph.execute_and_fetch(f"MATCH (n) WHERE ID(n) = {track_id} RETURN n;"),
+            memgraph.execute_and_fetch(f"MATCH (n) WHERE n.track_uri = {to_cypher_value(track_uri)} RETURN n;"),
             None,
         )
 
@@ -98,8 +98,8 @@ def add_track():
                 f"MATCH (n:Playlist)-[r]->(m) WHERE id(n) = {playlist_id} and m.album_name"
                 f" = {to_cypher_value(track.album_name)} RETURN count(m) as counts;"
             ),
-            0,
-        )
+            {},
+        ).get("counts", 0)
 
         if same_album_num == 0:
             playlist.num_albums += 1
@@ -109,17 +109,18 @@ def add_track():
                 f"MATCH (n:Playlist)-[r]->(m) WHERE id(n) = {playlist_id} and m.artist_name"
                 f" = {to_cypher_value(track.artist_name)} RETURN count(m) as counts;"
             ),
-            0,
-        )
+            {},
+        ).get("counts", 0)
+
         if same_artist_num == 0:
             playlist.num_artists += 1
         memgraph.execute(
-            f"MATCH (n), (m) WHERE id(n) = {playlist_id} AND id(m) = {track_id} CREATE"
+            f"MATCH (n), (m) WHERE id(n) = {playlist_id} AND m.track_uri = {to_cypher_value(track_uri)} CREATE"
             f" (n)-[:HAS]->(m) SET n = {to_cypher_value(playlist.to_map())};"
         )
-        return jsonify({"status": Status.SUCCESS, "message": "Track added successfully!"})
-    except Exception:
-        return jsonify({"status": Status.FAILURE, "message": Status.FAILURE})
+        return jsonify({"status": Status.SUCCESS, "message": "Track added successfully!", "track": track})
+    except Exception as exp:
+        return jsonify({"status": Status.FAILURE, "message": str(exp)})
 
 
 @app.route("/create-playlist", methods=["POST"])
