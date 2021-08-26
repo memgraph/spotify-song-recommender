@@ -143,6 +143,24 @@ def create_playlist():
         return jsonify({"status": Status.FAILURE, "message": str(exp)})
 
 
+@app.route("/rename-playlist", methods=["POST", "PUT", "PATCH"])
+def rename_playlist():
+    try:
+        data = request.get_json()
+        playlist_id = to_cypher_value(data["playlist_id"])
+        name = to_cypher_value(data["name"])
+        memgraph.execute_and_fetch(f"MATCH (n:{Playlist.LABEL}) WHERE id(n) = {playlist_id} SET n.name = {name};")
+        return jsonify(
+            {
+                "name": name,
+                "status": Status.SUCCESS,
+                "message": "Renamed successfully!",
+            }
+        )
+    except Exception as exp:
+        return jsonify({"status": Status.FAILURE, "message": str(exp)})
+
+
 @app.route("/track-recommendation", methods=["POST"])
 def track_recommendation():
     try:
