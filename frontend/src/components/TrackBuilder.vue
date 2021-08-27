@@ -1,7 +1,7 @@
 <template>
   <v-card class="mx-auto">
     <v-toolbar color="primary" dark>
-      <v-toolbar-title>Pick Some Songs</v-toolbar-title>
+      <v-toolbar-title>{{ $store.state.playlist_name }}</v-toolbar-title>
       <v-spacer></v-spacer>
 
       <v-btn icon>
@@ -47,9 +47,7 @@
 export default {
   name: "TrackBuilder",
 
-  created() {
-
-  },
+  created() {},
 
   data: () => ({
     playlist: {
