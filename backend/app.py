@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS
 
 import logging
 from logging import Formatter, FileHandler
@@ -7,6 +8,8 @@ from database import memgraph, setup_memgraph
 
 app = Flask(__name__)
 app.config.from_object("config")
+
+CORS(app, resources={r'/*': {'origins': '*'}})
 
 
 class Status:
@@ -81,14 +84,17 @@ def add_track():
             None,
         )
         track_result = next(
-            memgraph.execute_and_fetch(f"MATCH (n) WHERE ID(n) = {track_id} RETURN n;"),
+            memgraph.execute_and_fetch(
+                f"MATCH (n) WHERE ID(n) = {track_id} RETURN n;"),
             None,
         )
 
         playlist = (
-            Playlist.create_from_data(playlist_result["n"]) if playlist_result else None
+            Playlist.create_from_data(
+                playlist_result["n"]) if playlist_result else None
         )
-        track = Track.create_from_data(track_result["n"]) if track_result else None
+        track = Track.create_from_data(
+            track_result["n"]) if track_result else None
         if not playlist:
             return jsonify({"error": True, "message": "Playlist does not exist!"})
         if not track:
@@ -170,7 +176,8 @@ def not_found_error(error):
 if not app.debug:
     file_handler = FileHandler("error.log")
     file_handler.setFormatter(
-        Formatter("%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]")
+        Formatter(
+            "%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]")
     )
     app.logger.setLevel(logging.INFO)
     file_handler.setLevel(logging.INFO)

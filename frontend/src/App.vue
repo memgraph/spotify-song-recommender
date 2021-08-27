@@ -1,56 +1,53 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
+    <v-app-bar app color="secondary" dark>
       <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
           class="shrink mr-2"
           contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          src="@/assets/logo.svg"
           transition="scale-transition"
           width="40"
         />
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+        <h1>Spotifake</h1>
       </div>
 
       <v-spacer></v-spacer>
 
       <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        href="https://www.aicrowd.com/challenges/spotify-million-playlist-dataset-challenge"
         target="_blank"
         text
       >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
+        <span class="mr-2">Dataset</span>
+        <v-icon>mdi-database</v-icon>
+      </v-btn>
+      <v-btn
+        href="https://github.com/memgraph/boolean-pundits"
+        target="_blank"
+        text
+      >
+        <span class="mr-2">Fork me</span>
+        <v-icon>mdi-github</v-icon>
       </v-btn>
     </v-app-bar>
 
     <v-main>
-      <HelloWorld/>
+      <PlaylistCreator />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import PlaylistCreator from "./components/PlaylistCreator";
 
 export default {
-  name: 'App',
+  name: "App",
 
   components: {
-    HelloWorld,
+    PlaylistCreator,
   },
 
   data: () => ({
