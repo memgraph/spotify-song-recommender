@@ -10,7 +10,12 @@
     </v-toolbar>
 
     <v-list two-line>
-      <v-list-item-group v-model="selected" active-class="pink--text" multiple>
+      <v-list-item-group
+        v-model="selected"
+        v-on:change="trackSelected"
+        active-class="pink--text"
+        multiple
+      >
         <template v-for="(track, index) in topTracks">
           <v-list-item :key="track.track_uri">
             <template v-slot:default="{ active }">
@@ -50,6 +55,7 @@
 
 <script>
 import SongService from "@/services/SongService.js";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "ListTracks",
@@ -64,6 +70,26 @@ export default {
       .catch((err) => {
         console.log(err);
       });
+  },
+
+  computed: {
+    ...mapGetters(["trackUris"]),
+  },
+
+  methods: {
+    trackSelected() {
+      let self = this;
+      console.log(this.selected);
+
+      this.selected.forEach((index) => {
+        console.log(index);
+        let track_uri = self.topTracks[index];
+        self.addTrack(track_uri);
+      });
+
+      this.selected = [];
+    },
+    ...mapActions(["addTrack"]),
   },
 
   data: () => ({

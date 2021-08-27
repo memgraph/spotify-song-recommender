@@ -10,17 +10,17 @@ const apiClient = axios.create({
 });
 
 export default {
-  postCreatePlaylist: (name) =>
-    apiClient.post("/create-playlist", { playlist_name: name }),
+  postCreatePlaylist: (playlist_name) =>
+    apiClient.post("/create-playlist", { playlist_name }),
   putRenamePlaylist: (id, name) =>
     apiClient.put("/rename-playlist", {
       playlist_id: id,
       playlist_name: name,
     }),
-  postAddTrack: (id, trackUri) =>
+  postAddTrack: (playlist_id, track_uri) =>
     apiClient.post("/add-track", {
-      playlist_id: id,
-      track_uri: trackUri,
+      playlist_id,
+      track_uri,
     }),
   postTrackRecommendation: (id, trackIds) =>
     apiClient.post("/track-recommendation", {
