@@ -25,9 +25,9 @@ def get_better(
 
     Cypher equivalent:
 
-    MATCH (n:Playlist {pid: 106286})-[]->(m:Track)
+    MATCH (n:Playlist {pid: $playlist_id})-[]->(m:Track)
     WITH COLLECT(m) AS tracks
-    CALL similar_tracks.get_better(106286, tracks)
+    CALL similar_tracks.get_better($playlist_id, tracks)
     YIELD result, score RETURN result, score ORDER BY score DESC LIMIT 10;
     """
     track_ids = [track.id for track in tracks]

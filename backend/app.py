@@ -176,7 +176,7 @@ def track_recommendation():
         results = memgraph.execute_and_fetch(
             f"MATCH (n:Playlist {{pid: {playlist_id} }})-[]->(m:Track) "
             "WITH COLLECT(m) AS tracks "
-            "CALL similar_tracks.get_better(106286, tracks) "
+            f"CALL similar_tracks.get_better({playlist_id}, tracks) "
             "YIELD result, score RETURN result, score ORDER BY score DESC LIMIT 10; "
         )
         tracks = [Track.create_from_data(result["result"]) for result in results]
