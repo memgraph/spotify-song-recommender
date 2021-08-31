@@ -4,19 +4,19 @@
 <p align="center">Create playlists while being recommended songs that you will love!</p>
 
 <p align="center">
-  <a href="https://github.com/memgraph/boolean-pundits/LICENSE">
-    <img src="https://img.shields.io/github/license/memgraph/boolean-pundits" alt="license" title="license"/>
+  <a href="https://github.com/memgraph/spotify-song-recommender/LICENSE">
+    <img src="https://img.shields.io/github/license/memgraph/spotify-song-recommender" alt="license" title="license"/>
   </a>
-  <a href="https://github.com/memgraph/boolean-pundits">
-    <img src="https://img.shields.io/github/languages/code-size/memgraph/boolean-pundits" alt="build" title="build"/>
+  <a href="https://github.com/memgraph/spotify-song-recommender">
+    <img src="https://img.shields.io/github/languages/code-size/memgraph/spotify-song-recommender" alt="build" title="build"/>
   </a>
-  <a href="https://github.com/memgraph/boolean-pundits/stargazers">
+  <a href="https://github.com/memgraph/spotify-song-recommender/stargazers">
     <img src="https://img.shields.io/badge/maintainer-jbajic-yellow" alt="maintainer" title="maintainer"/>
   </a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/memgraph/boolean-pundits">
+  <a href="https://github.com/memgraph/spotify-song-recommender">
     <img src="" alt="demo" title="demo"/>
   </a>
 </p>
