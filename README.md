@@ -17,9 +17,10 @@
 
 <p align="center">
   <a href="https://github.com/memgraph/spotify-song-recommender">
-    <img src="" alt="demo" title="demo"/>
+    <img src="https://user-images.githubusercontent.com/16375100/132265706-420f00b9-ba5c-4e6d-b1f8-a3e3177b8df7.png" alt="demo" title="demo"/>
   </a>
 </p>
+
 
 ## :clipboard: description
 The world of music is constantly growing. Year by year, it is harder to keep up with trends and new songs that keep popping up. Luckily, there are enough people listening to music that finding new songs in playlists from people with similar taste might not be so difficult after all. This project aims to serve as a recommendation engine for people searching for new songs they will enjoy based on the songs they currently listen to.
