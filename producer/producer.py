@@ -3,12 +3,10 @@
 Usage:
     python3 producer.py path/to/data
 """
+import kafka
 import json
 import os
 import time
-from functools import wraps
-
-import kafka
 
 
 def process_mpd(path, producer):

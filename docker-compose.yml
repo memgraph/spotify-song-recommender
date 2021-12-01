@@ -28,14 +28,12 @@ services:
       - zookeeper
 
   memgraph:
-    image: memgraph/memgraph-mage:latest
+    image: memgraph/memgraph-mage:1.01
     volumes:
         - "./memgraph/query_modules:/custom_modules"
     entrypoint: [
         "/usr/lib/memgraph/memgraph",
-        "--telemetry-enabled=false",
-        "--kafka-bootstrap-servers=kafka:9092",
-        "--log-level=TRACE",
+        "--log-level=DEBUG",
         "--query-modules-directory=/usr/lib/memgraph/query_modules,/custom_modules",
         "--memory-limit=7000"
       ]
@@ -58,9 +56,6 @@ services:
       - backend
     ports:
       - "80:80"
-    depends_on:
-      - memgraph
-      - backend
 
   producer:
     build:
