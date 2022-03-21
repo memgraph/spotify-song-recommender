@@ -31,10 +31,21 @@
 </p>
 
 ## :clipboard: Description
-The world of music is constantly growing. Year by year, it is harder to keep up with trends and new songs that keep popping up. Luckily, there are enough people listening to music that finding new songs in playlists from people with similar tastes might not be so difficult after all. This project aims to serve as a recommendation engine for people searching for new songs they will enjoy based on the songs they currently listen to.
+
+The world of music is constantly growing. Year by year, it is harder to keep up
+with trends and new songs that keep popping up. Luckily, there are enough people
+listening to music that finding new songs in playlists from people with similar
+tastes might not be so difficult after all. This project aims to serve as a
+recommendation engine for people searching for new songs they will enjoy based
+on the songs they currently listen to.
 
 ## :books: Dataset
-The [Spotify playlist dataset](https://www.aicrowd.com/challenges/spotify-million-playlist-dataset-challenge) contains 5 million song playlists from different users. Each playlist contains a list of music tracks. The data model sample is given below:
+
+The [Spotify playlist
+dataset](https://www.aicrowd.com/challenges/spotify-million-playlist-dataset-challenge)
+contains 5 million song playlists from different users. Each playlist contains a
+list of music tracks. The data model sample is given below:
+
 <details>
   <summary align="center" style="color:gray;font-weight:900;align-items:center;display:flex">show dataset sample</summary>
   <p>
@@ -79,19 +90,33 @@ The [Spotify playlist dataset](https://www.aicrowd.com/challenges/spotify-millio
 </details>
 
 ## :zap: Features
-* Generate song recommendations - [similar_tracks.py](https://github.com/memgraph/spotify-song-recommender/blob/main/memgraph/query_modules/similar_tracks.py)
-* Find a similar playlist - [similar_playlists.py](https://github.com/memgraph/spotify-song-recommender/blob/main/memgraph/query_modules/similar_playlists.py)
-* Discover trendy songs - [trendy_tracks.py](https://github.com/memgraph/spotify-song-recommender/blob/main/memgraph/query_modules/trendy_tracks.py)
+
+- Generate song recommendations -
+  [similar_tracks.py](https://github.com/memgraph/spotify-song-recommender/blob/main/memgraph/query_modules/similar_tracks.py)
+- Find a similar playlist -
+  [similar_playlists.py](https://github.com/memgraph/spotify-song-recommender/blob/main/memgraph/query_modules/similar_playlists.py)
+- Discover trendy songs -
+  [trendy_tracks.py](https://github.com/memgraph/spotify-song-recommender/blob/main/memgraph/query_modules/trendy_tracks.py)
 
 ## :shipit: Installation
-1. Download and install [docker](https://www.docker.com/get-started)
-2. Clone this repository, or download the files with GitHub
+
+1. Download and install [ocker](https://www.docker.com/get-started)
+2. Clone this repository, or download the files with GitHub.
+3. Download the complete [Spotify
+   dataset](https://www.aicrowd.com/challenges/spotify-million-playlist-dataset-challenge#dataset)
+   and place the `.json` files in the directory `/producer/data` (the first
+   file is already there, you can just replace it).
 
 ## :question: Usage
-1. Run a simple command in your favorite terminal/cmd:
+
+1. Run these commands in your favorite terminal/cmd:
+
 ```
+docker-compose build
 docker-compose up
 ```
+
+2. Open the app on the address [localhost:80](localhost:80).
 
 ## Contributors ✨
 
