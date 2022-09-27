@@ -100,7 +100,7 @@ list of music tracks. The data model sample is given below:
 
 ## :shipit: Installation
 
-1. Download and install [ocker](https://www.docker.com/get-started)
+1. Download and install [Docker](https://www.docker.com/get-started)
 2. Clone this repository, or download the files with GitHub.
 3. Download the complete [Spotify
    dataset](https://www.aicrowd.com/challenges/spotify-million-playlist-dataset-challenge#dataset)
