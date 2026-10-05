@@ -20,7 +20,7 @@
 
 <p align="center">
   <a href="https://github.com/memgraph/spotify-song-recommender">
-    <img src="https://public-assets.memgraph.com/spotify-song-recommender/spotify-app-01.png" alt="demo" title="demo" style="width: 80%"/>
+    <img src="img/spotify-app-01.png" alt="demo" title="demo" style="width: 80%"/>
   </a>
 </p>
 
